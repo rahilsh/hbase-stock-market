@@ -1,0 +1,23 @@
+1. curl --request GET http://localhost:8291/stocks
+
+[{"rowKey":"ZBH-2013-11-15","date":"2013-11-15","open":"90.029999","high":"90.830002","low":"90.029999","close":"90.589996","volume":"1549700.0","adjClose":"88.500082","symbol":"ZBH"},{"rowKey":"ZBH-2014-07-10","date":"2014-07-10","open":"103.07","high":"103.830002","low":"102.0","close":"103.669998","volume":"1080200.0","adjClose":"101.951645","symbol":"ZBH"},{"rowKey":"ZBH-2015-12-04","date":"2015-12-04","open":"99.650002","high":"101.190002","low":"99.360001","close":"100.550003","volume":"1100000.0","adjClose":"99.900287","symbol":"ZBH"},{"rowKey":"ZION-2011-01-12","date":"2011-01-12","open":"23.879999","high":"24.389999","low":"23.799999","close":"24.02","volume":"4363900.0","adjClose":"23.378531","symbol":"ZION"},{"rowKey":"ZION-2013-08-02","date":"2013-08-02","open":"30.040001","high":"30.23","low":"29.700001","close":"30.15","volume":"2076600.0","adjClose":"29.521667","symbol":"ZION"},{"rowKey":"symbol_date","date":"date","open":"open","high":"high","low":"low","close":"close","volume":"volume","adjClose":"adjclose","symbol":"symbol"}]
+
+2. curl --request GET http://localhost:8291/stocks\?symbol\=AAPL
+
+[{"rowKey":"AAPL-2006-12-07","date":"2006-12-07","open":"90.029998","high":"90.500002","low":"86.9","close":"87.040003","volume":"2.512069E8","adjClose":"11.383904","symbol":"AAPL"},{"rowKey":"AAPL-2012-11-19","date":"2012-11-19","open":"540.709999","high":"567.499985","low":"539.88002","close":"565.730011","volume":"2.058294E8","adjClose":"74.648535","symbol":"AAPL"},{"rowKey":"AAPL-2016-05-18","date":"2016-05-18","open":"94.160004","high":"95.209999","low":"93.889999","close":"94.559998","volume":"4.20624E7","adjClose":"94.050506","symbol":"AAPL"}]
+
+3. curl --request GET http://localhost:8291/stocks/AAPL-2016-05-18
+
+{"rowKey":"AAPL-2016-05-18","date":"2016-05-18","open":"94.160004","high":"95.209999","low":"93.889999","close":"94.559998","volume":"4.20624E7","adjClose":"94.050506","symbol":"AAPL"}
+
+4. curl -X POST http://localhost:8291/stocks -H 'cache-control: no-cache' -H 'content-type: application/json' -H 'postman-token: 0947f460-1fd2-2acf-2c6f-7ed7d4120be1' -d '{"date":"2001-01-01","open":"94.160004","high":"95.209999","low":"93.889999","close":"94.559998","volume":"4.21E+07","adjClose":"94.050506","symbol":"AAPL","rowkey":"AAPL-2001-01-01"}'
+
+{"status":"Success","message":null,"size":-1,"records":null}
+
+5. curl -X PATCH http://localhost:8291/stocks/AAPL-2001-01-01 -H 'cache-control: no-cache' -H 'content-type: application/json' -H 'postman-token: ac62b3b4-089b-434c-e5a7-bf6fb6e3bb27' -d '{"date":"2001-01-01","open":"94.160004","high":"95.209999","low":"93.889999","close":"95.559998","volume":"4.21E+07","adjClose":"94.050506","symbol":"AAPL","rowKey":"AAPL-2001-01-01"}'
+
+{"status":"Success","message":null,"size":-1,"records":null}
+
+6. curl -X DELETE http://localhost:8291/stocks/AAPL-2001-01-01 -H 'cache-control: no-cache' -H 'content-type: application/json' -H 'postman-token: 06297f05-bd33-28bc-8730-4a3fb73b8e80' -d '{"date":"2001-01-01","open":"94.160004","high":"95.209999","low":"93.889999","close":"94.559998","volume":"4.21E+07","adjClose":"94.050506","symbol":"AAPL","rowkey":"AAPL-2001-01-01"}'
+
+{"status":"Success","message":null,"size":-1,"records":null}
