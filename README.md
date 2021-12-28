@@ -1,2 +1,2 @@
 # HBase Stock market
-SpringBoot application with HBase DB
+Stock market application built using SpringBoot and HBase
